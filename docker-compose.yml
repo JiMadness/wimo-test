@@ -1,0 +1,17 @@
+version: "1"
+
+services:
+  wimo-test:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/usr/src/app:ro
+    env_file:
+      - ./.env
+    networks:
+      - backend
+networks:
+  backend:
